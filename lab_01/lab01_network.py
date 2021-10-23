@@ -34,3 +34,27 @@ print(2 * hello + world)
 print('Put several strings within parantheses'
 	'to have them joined')
 
+
+#### Lists ####
+squares = [1, 4, 9, 16, 25, 36]
+print('printing a list...')
+print(squares)
+print('printing index 0 of the list..')
+print(squares[0])
+print('printing the last index of the list...')
+print(squares[-1])
+print('slicing the list using : operator...')
+print(squares[3:])
+print(squares[:3])
+# Slice operators returns a new list containing the requested elements.
+# This means that the following slice returns a shallow copy of the list.
+print('copying the list...')
+copied_list = squares[:]
+print(copied_list)
+
+print('Fibonacci series:')
+a, b = 0, 1
+while a < 10:
+	print(a)
+	a, b = b, a+b
+
