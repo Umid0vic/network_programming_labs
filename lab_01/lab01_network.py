@@ -58,3 +58,56 @@ while a < 10:
 	print(a)
 	a, b = b, a+b
 
+
+#### More Control Flow Tools ####
+# the range() and len() functions
+a = ['Mary', 'had', 'a', 'little', 'lamb']
+for i in range(len(a)):
+    print(i, a[i])
+    
+print('Printing the sum of all numbers between the given range:')
+sum(range(4))
+
+# break and continue statements in for loops
+for n in range(2, 10):
+    for x in range(2, n):
+        if n % x == 0:
+            print(n, 'equals', x, '*', n//x)
+            break
+    else:
+            print(n, 'is a prime number')
+            
+
+# pass Statement does nothing. 
+# Often used to create a mininal classes
+class MyEmptyClass
+    pass
+    
+# or in a functions that has not been implemented yet
+def initLog(*args):
+    pass ## TODO
+    
+# match Statement. Very similar to switch statements in other languages
+def http_error(status):
+    match status:
+        case 400:
+            return "Bad request"
+        case 404:
+            return "Not found"
+        case 418:
+            return "I'm a teapot"
+        case _:
+            return "Something's wrong with the internet"
+            
+
+match point:
+    case (0, 0):
+        print("Origin")
+    case (0, y):
+        print(f"Y={y}")
+    case (x, 0):
+        print(f"X={x}")
+    case (x, y):
+        print(f"X={x}, Y={y}")
+    case _:
+        raise ValueError("Not a point")
