@@ -1,0 +1,24 @@
+#lab 2 - Network Programming
+#created by Osman Said 2021-10-26
+
+players = {}
+top_players = []
+file = open('score2.txt')
+
+for line in file.readlines():
+    upp, number, firstName, lastName, points = line.split()
+    key = firstName+ ' ' +lastName
+    if key in dic:
+    	new_points = dic[key] + int(points)
+    	dic[key] = new_points
+    else:
+    	dic[firstName+ ' ' +lastName] = int(points)
+
+for i in dic:
+	print i, dic[i]
+print('Players with highest scores:')
+highest = max(dic, key=dic.get)
+
+for k, v in dic.items():
+	if v == dic[highest]:
+		print(k, dic[highest])
