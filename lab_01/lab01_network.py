@@ -111,3 +111,19 @@ match point:
         print(f"X={x}, Y={y}")
     case _:
         raise ValueError("Not a point")
+
+
+## Enum ##
+from enum import Enum
+class Color(Enum):
+    RED = 0
+    GREEN = 1
+    BLUE = 2
+
+match color:
+    case Color.RED:
+        print("I see red!")
+    case Color.GREEN:
+        print("Grass is green")
+    case Color.BLUE:
+        print("I'm feeling the blues :(")
