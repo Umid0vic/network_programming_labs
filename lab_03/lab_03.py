@@ -1,6 +1,8 @@
 # Network programming lab 3 - Python: Classes
 # created by Osman Said 2021-10-27
 
+import random 
+
 
 class Card:
 	def __init__(self, suit, value):
@@ -15,27 +17,36 @@ class Card:
 		return self._suit
 	
 	def __str__(self):
-		values = [ 'Ace', 'Two', 'Three', 'Four', 'Five', 'Six', 'Seven',
-			'Eight', 'Nine', 'Ten', 'Jack', 'Queen', 'King']			]
+		values = [ 
+			'Ace', 'Two', 'Three', 'Four', 'Five', 'Six', 
+			'Seven', 'Eight', 'Nine', 'Ten', 'Jack', 'Queen', 'King'
+		]
 
 		suits = ['Spades','Hearts','Diamons','Clubs']
 		
-		value = values[self.getValue() + 1]
-		suit  = suits[self.getSuit() + 1]
+		value = values[self.getValue() - 1]
+		suit  = suits[self.getSuit() - 1]
 		return '{} of {}'.format(value, suit)
 
 class CardDeck:
 	def __init__(self):
-		pass
+		self.reset()
 	
 	def shuffle(self):
-		pass
+		random.shuffle(self.cardDeck)
 	
 	def getCard(self):
-		pass
+		return self.cardDeck.pop()
 	
 	def size(self):
-		pass
+		return len(self.cardDeck)
 	
 	def reset(self):
-		pass
+		self.cardDeck = []
+		suits = [1, 2, 3, 4]
+		values = [*range(1, 14)]  #a list of numbers between 1 and 14. 14 not included
+		for s in suits:
+			for v in values:
+				self.cardDeck.append(Card(s, v))
+
+
