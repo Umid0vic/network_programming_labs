@@ -55,7 +55,7 @@ print(copied_list)
 print('Fibonacci series:')
 a, b = 0, 1
 while a < 10:
-	print(a)
+	print(a, end = ' ')
 	a, b = b, a+b
 
 
@@ -80,50 +80,20 @@ for n in range(2, 10):
 
 # pass Statement does nothing. 
 # Often used to create a mininal classes
-class MyEmptyClass
+class MyEmptyClass:
     pass
     
 # or in a functions that has not been implemented yet
 def initLog(*args):
     pass ## TODO
     
-# match Statement. Very similar to switch statements in other languages
-def http_error(status):
-    match status:
-        case 400:
-            return "Bad request"
-        case 404:
-            return "Not found"
-        case 418:
-            return "I'm a teapot"
-        case _:
-            return "Something's wrong with the internet"
-            
 
-match point:
-    case (0, 0):
-        print("Origin")
-    case (0, y):
-        print(f"Y={y}")
-    case (x, 0):
-        print(f"X={x}")
-    case (x, y):
-        print(f"X={x}, Y={y}")
-    case _:
-        raise ValueError("Not a point")
+#### Lists #####
 
-
-## Enum ##
-from enum import Enum
-class Color(Enum):
-    RED = 0
-    GREEN = 1
-    BLUE = 2
-
-match color:
-    case Color.RED:
-        print("I see red!")
-    case Color.GREEN:
-        print("Grass is green")
-    case Color.BLUE:
-        print("I'm feeling the blues :(")
+fruits = ['banana', 'orange', 'pineapple', 'apple', 'kiwi', 'apple', 'pear']
+print(fruits)
+print('number of apples: ' + str(fruits.count('apple')))
+print('removing orange and adding grape to the list..')
+fruits.remove('orange')
+fruits.append('gpape')
+print(fruits)
