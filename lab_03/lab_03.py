@@ -49,4 +49,11 @@ class CardDeck:
 			for v in values:
 				self.cardDeck.append(Card(s, v))
 
-
+# testing code
+deck = CardDeck()
+deck.shuffle()
+cardNum = 0
+while deck.size() > 0:
+	cardNum += 1
+	card = deck.getCard()
+	print("{}: Card {} has value {}".format(cardNum, card, card.getValue()))
