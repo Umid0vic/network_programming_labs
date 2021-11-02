@@ -43,8 +43,8 @@ class CardDeck:
 	
 	def reset(self):
 		self.cardDeck = []
-		suits = [1, 2, 3, 4]
-		values = [*range(1, 14)]  #a list of numbers between 1 and 14. 14 not included
+		suits = range(1, 5)
+		values = range(1, 14)  #a list of numbers between 1 and 14. 14 not included
 		for s in suits:
 			for v in values:
 				self.cardDeck.append(Card(s, v))
