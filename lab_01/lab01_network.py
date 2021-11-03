@@ -97,3 +97,13 @@ print('removing orange and adding grape to the list..')
 fruits.remove('orange')
 fruits.append('gpape')
 print(fruits)
+
+#### Dictionaries and looping techniques ####
+student = {'name': 'Jack', 'Age': 22, 'Program': 'Computer Science' }
+print('get the key and value from a dictionary using for loop..')
+for k, v in student.items():
+    print(k,':', v)
+
+print('printing indexes and values of a sequence..')
+for i, v in enumerate(fruits):
+    print(i, v)
