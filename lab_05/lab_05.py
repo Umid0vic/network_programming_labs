@@ -46,4 +46,38 @@ def client_side(host):
 	serverPoints = 0
 	clientPoints = 0
 	while True:
-		#TODO
+		c_move = input(' ({},{}) Your move: '.format(clientPoints, serverPoints))
+		while c_move not  in {'S', 'P', 'R'}:
+			c_move = input(' Choose one of the moves (S, P, R): ')
+		socketC.sendall(bytearray(c_move,'ascii'))
+		data = socketC.recv(1024)
+		s_move = data.decode('ascii')
+
+		print(' (opponent\'s move: {})'.format(s_move))
+		if (c_move == 'S' and s_move == 'P') or (s_move == 'P' and c_move == 'R') or (c_move == 'R' and s_move =='S'):
+			clientPoints += 1
+		elif (s_move == c_move):
+			pass
+		else:
+			serverPoints += 1
+		if clientPoints == 10:
+			print(' You won {} against {}'.format(clientPoints, serverPoints))
+			break
+		elif serverPoints == 10:
+			print(' You lost {} againts {}'.format(clientPoints, serverPoints))
+			break
+	socketC.close()
+	print(' You are disconnected from server')
+    
+
+while True:
+	print(' Welcome to the game!')
+	ans = input(' Do you want to be server (S) or client (C): ')
+	
+	while ans not in {'S', 'C'}:
+			ans = input(' Enter (S) for playing server or (C) for client:')
+	if ans == 'S':
+		server_side()
+	else:
+		host = input("Enter the server's name or IP: ")
+		client_side(host)
