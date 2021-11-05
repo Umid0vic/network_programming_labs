@@ -54,7 +54,7 @@ def client_side(host):
 		s_move = data.decode('ascii')
 
 		print(' (opponent\'s move: {})'.format(s_move))
-		if (c_move == 'S' and s_move == 'P') or (s_move == 'P' and c_move == 'R') or (c_move == 'R' and s_move =='S'):
+		if (c_move == 'S' and s_move == 'P') or (c_move == 'P' and s_move == 'R') or (c_move == 'R' and s_move =='S'):
 			clientPoints += 1
 		elif (s_move == c_move):
 			pass
