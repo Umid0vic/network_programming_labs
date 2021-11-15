@@ -7,25 +7,28 @@ port = 8080
 host = ''
 sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 sock.bind((host, port))
+sock.listen(10)
 
 #establish connection with client
 while True:
-	print('listening...')
-	c, addr = sock.accept()
-	data = c.recv(1024)
-	data = data.decode()
+    print('\n...listning..\n')
+    c, addr= sock.accept()
+    data= c.recv(1024)
+    data = data.decode()
 
-	print(data)
-	c.sendall(bytearray('HTTP/1.1 200 ok\n', 'ASCII'))
-	c.sendall(bytearray('''
-		<html>
-		<body>
-		<h1>Your browser sent the following request:</h1>
-		<pre>''' , 'ASCII'))
-	c.send(bytearray(data, 'ASCII'))
-	c.send(bytearray('''
-		</pre>
-		</body>
-		</html>''', 'ASCII'))
-	c.close()
+    print(data)
+    c.sendall(bytearray('HTTP/1.1 200  ok\n', 'ASCII') )
+    c.sendall(bytearray('''
+        <html>
+        <body>
+        <h1>Youre Browser sent the Folowing Request:</h1>
+        <pre>''' ,'ASCII'))
+    c.send(bytearray(data,'ASCII'))
+    c.send(bytearray('''
+        </pre>       
+        </body>
+        </html>
+        ''','ascii'))
+  
+    c.close()
 sock.close()
