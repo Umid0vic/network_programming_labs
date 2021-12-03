@@ -18,7 +18,7 @@ while True:
         listOfSockets.insert(len(listOfSockets),sockClient)
         for c in range(1,len(listOfSockets)):
             if listOfSockets[c] != sockClient:
-                listOfSockets[c].sendall(bytearray(("{} connected".format(addr)),'ascii'))
+                listOfSockets[c].sendall(bytearray(("{}: connected".format(addr)),'ascii'))
     else:
         data = sock.recv(2048)
         if not data:
