@@ -1,5 +1,5 @@
 # Network programming lab 7 - Multiple clients
-# craeted by Osman Said 01-12-2021
+# created by Osman Said 01-12-2021
 
 import socket
 import select
@@ -23,7 +23,7 @@ while True:
         data = sock.recv(2048)
         if not data:
             listOfSockets.remove(sock)
-            print("{} disconnected".format(sock.getpeername())) 
+            print("{} disconnected".format(sock.getpeername()))
             for c in range(1,len(listOfSockets)):
                 if listOfSockets[c] != sock:
                     listOfSockets[c].sendall(bytearray(("{}: disconnected".format(sock.getpeername())),'ascii'))  
