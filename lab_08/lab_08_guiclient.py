@@ -167,8 +167,8 @@ def sendMessage(master):
 
     if g_bConnected:
         try:
-            messige = g_app.textIn.get()
-            g_sock.sendall(bytearray(messige,'ascii'))
+            message = g_app.textIn.get()
+            g_sock.sendall(bytearray(message,'ascii'))
         except:
             printToMessages("could not send")
     else:
