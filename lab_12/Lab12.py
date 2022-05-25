@@ -7,7 +7,7 @@ from firebase_admin import db
 
 # Firebase setup
 cred = credentials.Certificate('thechat-private-key.json')
-firebase_admin.initialize_app(cred, {'databaseURL':'https://thechat-308f8-default-rtdb.europe-west1.firebasedatabase.app/'})
+firebase_admin.initialize_app(cred, {'databaseURL':'some/database/url'})
 ref = db.reference('/')
 
 
